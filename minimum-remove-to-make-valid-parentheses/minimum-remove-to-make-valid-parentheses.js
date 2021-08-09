@@ -1,29 +1,19 @@
-const minRemoveToMakeValid = function (s) {
-  if(s.length === 0) return s;
-  let stack = []
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "("){
+const minRemoveToMakeValid = function(s) {
+  const str = s.split('');
+  const stack = [];
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(') {
       stack.push(i);
-    }
-    if(s[i] === ")") {
-      if (stack.length === 0) {
-        s = removeCharAt(s, i);
-        i--;
-      } else {
-        stack.pop();
-      }
+    } else if (str[i] === ')' && stack.length) {
+      stack.pop();
+    } else if (str[i] === ')') {
+      str[i] = ''
     }
   }
-  if(stack.length){
-    while(stack.length){
-      s = removeCharAt(s, stack.pop());
-    }
+  while (stack.length) {
+    str[stack.pop()] = '';
   }
-  return s;
+
+  return str.join('');
 };
-const removeCharAt = (s, ptr) => {
-  let arr = s.split("")
-  let remove = arr.splice(ptr, 1)
-  s = arr.join("")
-  return s;
-}
