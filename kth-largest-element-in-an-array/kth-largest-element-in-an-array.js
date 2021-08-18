@@ -22,16 +22,21 @@ const partition = function(array, left, right) {
   return i;
 }
 
-const quickSort = function (array, left, right) {
+const quickSelect = function (array, left, right, position) {
   if (left < right) {
-    let partitionIndex = partition(array, left, right);
-    quickSort(array, left, partitionIndex-1);
-    quickSort(array, partitionIndex+1, right);
+    let partitionIndex = partition(array, left, right, position);
+    if (position === partitionIndex){
+      return array;
+    }else if (position>partitionIndex){
+      quickSelect(array, partitionIndex+1, right, position);
+    } else {
+      quickSelect(array, left, partitionIndex-1, position);
+    }
   }
 }
 
 const findKthLargest = function (nums, k) {
-  quickSort(nums, 0, nums.length - 1)
-  return nums[nums.length - k];
+  let position = nums.length - k;
+  quickSelect(nums, 0, nums.length - 1, position)
+  return nums[position];
 };
-
