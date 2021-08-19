@@ -1,5 +1,4 @@
-const binarySearch = function (arr, target) {
-  let left = 0, right = arr.length-1;
+const binarySearch = function (arr, target, left, right) {
   while (left<=right) {
     let mid = Math.floor((left+right) / 2);
     if (arr[mid]===target){
@@ -14,24 +13,21 @@ const binarySearch = function (arr, target) {
 }
 
 const searchRange = function (nums, target) {
-  let foundVal = binarySearch(nums, target);
-  let positions = [];
-  if (foundVal === -1){
-    positions.push(-1);
-    positions.push(-1);
-    return positions;
-  } else {
-    let lptr = foundVal, rptr = foundVal;
-    while(nums[lptr] === target){
-      lptr--;
-    }
-    while (nums[rptr] === target){
-      rptr++;
-    }
-    positions.push(++lptr);
-    positions.push(--rptr);
-    return positions;
-  }
-};
+  if (nums.length<1) return [-1, -1];
+  let foundVal = binarySearch(nums, target, 0, nums.length-1);
 
-// console.log(searchRange([5,7,7,8,8,10], 8))
+  if(foundVal === -1) return [-1,-1];
+
+  let lptr = foundVal, rptr = foundVal, tempR, tempL;
+  while (rptr !== -1){
+    tempR = rptr;
+    rptr = binarySearch(nums, target, rptr+1, nums.length-1);
+  }
+  rptr = tempR;
+  while (lptr !== -1){
+    tempL = lptr;
+    lptr = binarySearch(nums, target,  0, lptr-1);
+  }
+  lptr = tempL;
+  return [lptr, rptr];
+};
