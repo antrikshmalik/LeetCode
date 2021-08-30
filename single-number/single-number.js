@@ -5,6 +5,7 @@ var singleNumber = function(nums) {
     }
     return ans
 };
+//
 // for example [4,1,2,1,2]
 // 4^1 = 4+1 =5
 // 5^2=5+2=7
