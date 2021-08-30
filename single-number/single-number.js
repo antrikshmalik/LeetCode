@@ -1,9 +1,9 @@
 var singleNumber = function(nums) {
-    var result = nums[0];
-    for(var i = 1; i < nums.length; i++) {
-        result = result^nums[i];
+    let ans = 0
+    for(let i = 0 ; i <nums.length;i++){
+        ans = ans ^ nums[i]
     }
-    return result;
+    return ans
 };
 // for example [4,1,2,1,2]
 // 4^1 = 4+1 =5
