@@ -12,14 +12,21 @@
  */
 const detectCycle = function (head) {
   if (head === null ) return null;
-  let currentNode = head;
-  let visitedNodes = new Set();
-  while (!visitedNodes.has(currentNode)){
-    if (currentNode.next === null){
+  let start = head;
+  let hare = head, tortoise = head;
+  while(true){
+    tortoise = tortoise.next;
+    hare = hare.next;
+    if(hare === null || hare.next === null) {
       return null;
+    } else {
+      hare = hare.next;
     }
-    visitedNodes.add(currentNode);
-    currentNode = currentNode.next;
+    if(tortoise === hare) break;
   }
-  return currentNode;
+  while(start!==tortoise){
+    start = start.next;
+    tortoise = tortoise.next;
+  }
+  return start;
 };
