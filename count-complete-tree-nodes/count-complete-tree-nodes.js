@@ -1,8 +1,11 @@
+const getHeight = function(root){
+  let height = 0;
+  while(root.left !== null) {
+    height++;
+    root = root.left;
+  }
 
-const getHeight = function(node, height){
-  if(!node) return --height;
-  console.log(node.value, height)
-  return getHeight(node.left, height+1);
+  return height;
 }
 
 const check = function (node, toFind, height){
@@ -23,7 +26,7 @@ const check = function (node, toFind, height){
 
 const countNodes = function (root) {
   if(!root) return 0;
-  let height = getHeight(root, 0);
+  let height = getHeight(root);
   if(height === 0) return 1;
   let other_layers = 0;
   other_layers = Math.pow(2, height) - 1;
