@@ -10,18 +10,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-const recursionDepth = function (node, counter) {
-  if(node === null){
-    return counter;
-  }
-  counter++;
-  return Math.max(recursionDepth(node.left, counter), recursionDepth(node.right, counter))
+const maxDepth = (node) => {
+  if(!node) return 0;
+  return 1+(Math.max(maxDepth(node.left), maxDepth(node.right)))
 }
-
-const maxDepth = function (root) {
-  if(root === null) return 0;
-  if(root.left === null && root.right === null){
-    return  1;
-  }
-  return  recursionDepth(root, 0)
-};
