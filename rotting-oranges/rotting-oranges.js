@@ -27,7 +27,12 @@ const orangesRotting = function(matrix) {
       }
     }
   }
-    
+  
+  if(freshOranges === 0) {
+    return 0;
+  }
+
+  
   let minutes = 0;
   let currentQueueSize = queue.length;
   
@@ -36,6 +41,7 @@ const orangesRotting = function(matrix) {
       currentQueueSize = queue.length;
       minutes++;
     }
+    
 
     const currentOrange = queue.shift();
     currentQueueSize--;
