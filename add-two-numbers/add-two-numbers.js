@@ -1,5 +1,5 @@
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked list, please handle with care.
  * function ListNode(val, next) {
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
