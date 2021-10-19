@@ -11,7 +11,7 @@
  * @return {number[]}
  */
 
-var preorderTraversal = function(root) {
+const preorderTraversal = (root) => {
     let result = [];
     
     function traversal(root) {
@@ -22,7 +22,5 @@ var preorderTraversal = function(root) {
      }
     
     traversal(root);
-    return result;
-   
-    
+    return result;      
 };
