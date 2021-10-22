@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+//arrow
 int main(){
 	int n;
 	cin>>n;
