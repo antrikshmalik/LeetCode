@@ -4,17 +4,10 @@ public:
       unordered_map<int, int> map;
       for(int i=0; i<nums.size(); i++) {
         if(map[nums[i]]){
-          map[nums[i]]++;
+          return true;
         }
-        else{
-          map[nums[i]] = 1;
-        }
+        map[nums[i]] = true;
       }
-      int count=0;
-      for (auto i:map) {
-        if(i.second == 1)
-          count++;
-      }
-        return count != nums.size();
+      return false;
     }
 };
