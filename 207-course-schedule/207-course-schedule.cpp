@@ -13,11 +13,13 @@ public:
         }
         while (!q.empty()){
           int current = q.front(); q.pop();
-          seen[current] = true;
-          if(current == v) return false;
-          for (int i = 0; i < adjList[current].size(); ++i) {
-            if(!seen[adjList[current][i]])
-              q.push(adjList[current][i]);
+          if(!seen[current]){
+            seen[current] = true;
+            if(current == v) return false;
+            for (int i = 0; i < adjList[current].size(); ++i) {
+              if(!seen[adjList[current][i]])
+                q.push(adjList[current][i]);
+            }
           }
         }
       }
