@@ -1,28 +1,34 @@
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-      vector<vector<int>> adjList (numCourses, vector<int>());
-      for (auto relation:prerequisites) {
+      vector<vector<int>> adjList(numCourses, vector<int>());
+      vector<int> indegree(numCourses, 0);
+      for (auto relation: prerequisites) {
         adjList[relation[1]].push_back(relation[0]);
+        indegree[relation[0]]++;
       }
-      for (int v = 0; v < numCourses; ++v) {
-        queue<int> q;
-        map<int, bool> seen;
-        for (int i = 0; i < adjList[v].size(); ++i) {
-          q.push(adjList[v][i]);
-        }
-        while (!q.empty()){
-          int current = q.front(); q.pop();
-          if(!seen[current]){
-            seen[current] = true;
-            if(current == v) return false;
-            for (int i = 0; i < adjList[current].size(); ++i) {
-              if(!seen[adjList[current][i]])
-                q.push(adjList[current][i]);
-            }
-          }
+//      for (auto i: indegree) {
+//        for (auto j: i) {
+//          cout << j <<" ";
+//        }
+//        cout<<endl;
+//      }
+      stack<int> stk;
+      for (int i = 0; i < indegree.size(); ++i) {
+        if (indegree[i] == 0) {
+          stk.push(i);
         }
       }
-      return true;
+      int count = 0;
+      while (!stk.empty()) {
+        int current = stk.top(); stk.pop();
+        count++;
+        for (int i = 0; i < adjList[current].size(); ++i) {
+          indegree[adjList[current][i]]--;
+          if(indegree[adjList[current][i]] == 0)
+            stk.push(adjList[current][i]);
+        }
+      }
+      return count == numCourses;
     }
 };
