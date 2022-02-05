@@ -1,28 +1,26 @@
 class Solution {
-public:
-    vector<int> intersectMain(vector<int> &bigger, vector<int> &smaller){
-      vector<int> res;
-      unordered_map<int, bool> umap;
-      for (int i = 0; i < smaller.size(); ++i) {
-        if(umap.find(smaller[i]) == umap.end()){
-          umap[smaller[i]] = true;
-        }
-      }
-      for (int i = 0; i < bigger.size(); ++i) {
-        if(umap.find(bigger[i]) != umap.end()){
-          umap.erase(bigger[i]);
-          res.push_back(bigger[i]);
-        }
-      }
-      return res;
-    }
+public:    
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-      vector<int> res;
-      unordered_map<int, int> umap;
-      if(nums1.size() > nums2.size()){
-        return intersectMain(nums1, nums2);
-      } else {
-        return intersectMain(nums2, nums1);
-      }
+        sort(nums1.begin(), nums1.end());
+        sort(nums2.begin(), nums2.end());
+        
+        int p1 = 0, p2 = 0;
+        set<int> res;
+        
+        while(p1 < nums1.size() && p2 < nums2.size())
+        {
+            if(nums1[p1] == nums2[p2])
+                res.insert(nums1[p1]);
+
+            
+            if(nums1[p1] <= nums2[p2])
+                p1++;
+                
+            else if(nums2[p2] <= nums1[p1])
+                p2++;
+        }
+        
+        vector<int> v(res.begin(), res.end());
+        return v;
     }
 };
