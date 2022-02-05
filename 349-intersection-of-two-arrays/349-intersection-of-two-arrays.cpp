@@ -1,6 +1,3 @@
-#include "bits/stdc++.h"
-using namespace std;
-
 class Solution {
 public:
     vector<int> intersectMain(vector<int> &bigger, vector<int> &smaller){
@@ -12,7 +9,7 @@ public:
         }
       }
       for (int i = 0; i < bigger.size(); ++i) {
-        if(umap[bigger[i]]){
+        if(umap.find(bigger[i]) != umap.end()){
           umap.erase(bigger[i]);
           res.push_back(bigger[i]);
         }
