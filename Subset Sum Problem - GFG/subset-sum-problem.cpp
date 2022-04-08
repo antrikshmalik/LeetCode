@@ -26,27 +26,25 @@ public:
         // code here 
         int n = arr.size();
         vector<vector<int>> dp(n+1, vector<int>(sum+1, -1));
-        // return subset(n, arr, sum, dp);
-        
+        // for(auto i:dp){
+        //     for(auto j:i){
+        //         cout<<j<<" ";
+        //     }cout<<endl;
+        // }
+        return subset(n, arr, sum, dp);
         // for(int i=0; i<n+1; i++) {
         //     for(int j=0; j<sum+1;  j++) {
         //         if( i==0 ) dp[i][j] = false;
         //         if( j==0 ) dp[i][j] = true;
+        //         if(i==0||j==0) continue;
+        //         if(dp[i-1][j] <= sum) {
+        //             dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
+        //         } else {
+        //             dp[i][j] = dp[i-1][j];
+        //         }
         //     }
         // }
-        for(int i=0; i<n+1; i++) {
-            for(int j=0; j<sum+1;  j++) {
-                if( i==0 ) dp[i][j] = false;
-                if( j==0 ) dp[i][j] = true;
-                if(i==0||j==0) continue;
-                if(dp[i-1][j] <= sum) {
-                    dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
-                } else {
-                    dp[i][j] = dp[i-1][j];
-                }
-            }
-        }
-        return dp[n][sum];
+        // return dp[n][sum];
     }
 };
 
