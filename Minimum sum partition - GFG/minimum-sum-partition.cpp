@@ -36,7 +36,7 @@ class Solution{
             }
         }
         int mn = INT_MAX;
-        for(int i=0; i<=sum; i++){
+        for(int i=0; i<sum+1; i++){
             if( dp[n][i] ){
                 mn = min(mn, range-2*i);
             }
