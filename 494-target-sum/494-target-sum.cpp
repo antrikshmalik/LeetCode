@@ -22,14 +22,15 @@ public:
         if((arrSum+tar)%2!=0) return 0;
         int target = (arrSum + tar)/2;
         if(arrSum < tar) return 0;
-        vector<vector<int>> dp(n+1, vector<int>(target+1,-1));
+        vector<vector<int>> dp(n+1, vector<int>(target+1, -1));
         return counter(nums, n, target, dp);
         // for(int i=0; i<n+1; i++) {
         //     for(int j=0; j<target+1; j++) {
-        //         if(i==0) dp[i][j] = false;
-        //         if(j==0) dp[i][j] = true;
-        //         if(i==0 or j==0) continue;
-        //         if(dp[i][j] > target)
+        //         if(i==0) 
+        //             dp[i][j] = 0;
+        //         else if(j==0) 
+        //             dp[i][j] = 1;
+        //         else if(nums[i-1] > j)
         //             dp[i][j] = dp[i-1][j];
         //         else
         //             dp[i][j] = dp[i-1][j-nums[i-1]] + dp[i-1][j];
