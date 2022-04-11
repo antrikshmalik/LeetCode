@@ -20,12 +20,30 @@ public:
         for(int i=0; i<n+1; i++) {
             for(int j=0; j<m+1; j++) {
                 if( i==0 || j==0 ) dp[i][j] = 0;
-                else if( text1[i-1] == text2[j-1] )
+                else if( text1[i-1] == text2[j-1] ){
                     dp[i][j] = 1+dp[i-1][j-1];
+                    
+                }
                 else
                     dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
             }
         }
+        
+        //PRINT LCS
+        int i=n, j=m;
+        while(i>0 && j>0) {
+            if(text1[i-1] == text2[j-1]){
+                cout<<text1[i-1];
+                i--; j--;
+            } else {
+                if(dp[i][j-1] > dp[i-1][j]){
+                    j--;
+                } else {
+                    i--;
+                }
+            }
+        }
+        
         return dp[n][m];
     }
 };
