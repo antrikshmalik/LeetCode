@@ -11,7 +11,6 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* result;
         if(list1 == NULL)
             return list2;
         if(list2 == NULL) 
@@ -23,6 +22,5 @@ public:
             list2->next = mergeTwoLists(list1, list2->next);
             return list2;
         }
-        // return result; 
     }
 };
