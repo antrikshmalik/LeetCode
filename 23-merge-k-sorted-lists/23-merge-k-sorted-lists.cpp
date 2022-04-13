@@ -27,15 +27,19 @@ public:
     ListNode* mergeKLists(vector<ListNode*>& lists) 
     {
         if(lists.size() == 0) return 0;
-        queue<ListNode*> q;
-        for(int i=0; i<lists.size(); i++) {
-            q.push(lists[i]);
+        // queue<ListNode*> q;
+        ListNode* temp = lists[0];
+        
+        for(int i=1; i<lists.size(); i++) {
+            // q.push(lists[i]);
+            temp = mergeTwoLists(temp, lists[i]);
         }
-        while(q.size() > 1) {
-            ListNode* a= q.front(); q.pop();
-            ListNode* b= q.front(); q.pop();
-            q.push(mergeTwoLists(a, b));
-        }
-        return q.front();
+        return temp;
+        // while(q.size() > 1) {
+        //     ListNode* a= q.front(); q.pop();
+        //     ListNode* b= q.front(); q.pop();
+        //     q.push(mergeTwoLists(a, b));
+        // }
+        // return q.front();
     }
 };
