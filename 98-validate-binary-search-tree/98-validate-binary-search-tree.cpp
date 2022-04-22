@@ -11,20 +11,16 @@
  */
 class Solution {
 public:
-    vector<int> traversal;
-    void inOrder(TreeNode* node) {
-        if(!node) return;
-        inOrder(node->left);
-        traversal.push_back(node->val);
-        inOrder(node->right);
-    }
-    bool isValidBST(TreeNode* root) {
-        // if(!root) return true;
-        inOrder(root);
-        for(int i=1; i<traversal.size(); i++) {
-            if(traversal[i-1]>=traversal[i])
-                return false;
-        }
-        return true;
-    }
+    bool isValidBSTHelper(TreeNode* root, long min, long max) {
+		if(!root){
+			return true;
+		}   
+		if(root->val > min && root->val < max) {
+			return isValidBSTHelper(root->left, min, root->val) && isValidBSTHelper(root->right, root->val, max);
+		}    
+		return false;
+	}
+	bool isValidBST(TreeNode* root) {
+		return isValidBSTHelper(root, LONG_MIN, LONG_MAX);
+	} 
 };
