@@ -30,14 +30,14 @@ public:
                     // cout<<nodePair.first->val<<" ";
                     parentY = nodePair.second;
                 }
-                if(nodePair.first->left) 
-                    q.push({nodePair.first->left, nodePair.first->val});
-                if(nodePair.first->right) 
-                    q.push({nodePair.first->right, nodePair.first->val});
                 if(parentX and parentY) {
                     if(parentX != parentY)
                         return true;
                 }
+                if(nodePair.first->left) 
+                    q.push({nodePair.first->left, nodePair.first->val});
+                if(nodePair.first->right) 
+                    q.push({nodePair.first->right, nodePair.first->val});
                 level--;
             }
         }
