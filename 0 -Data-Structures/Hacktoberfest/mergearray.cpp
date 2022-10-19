@@ -46,4 +46,6 @@ int main()
 	int n=3;
 	mergearray(a,m,b,n);
 	return 0;
+	
+	cout<<"helkloo"
 }
