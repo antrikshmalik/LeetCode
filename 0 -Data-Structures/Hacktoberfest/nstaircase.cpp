@@ -35,7 +35,7 @@ int nstairs(int n,int k){//k is always <= n -> given
 int main(){
 	int n,k; cin>>n>>k;
 	cout<<stairs(n)<<endl;
-	// sample case should give the value 7 for the input of 4
+	// sample case should give the value 7 for the input of 5 just kidding
 	cout<<nstairs(n,k)<<endl;
 	
 
