@@ -1,16 +1,6 @@
 // C++ program for implementation of Bubble sort
 #include <bits/stdc++.h>
 using namespace std;
-
-/* Function to print an array */
-void printArray(int arr[], int size)
-{
-	int i;
-	for (i = 0; i < size; i++)
-		cout << arr[i] << " ";
-	cout << endl;
-}
-
 // Driver code
 int main()
 {
