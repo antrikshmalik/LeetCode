@@ -2,11 +2,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* Function to sort an array using insertion sort*/
+// O(n^2)
+
+// Function to sort an array of size n using insertion sort
 void insertionSort(int arr[], int n)
 {
-	int i, key, j;
-	for (i = 1; i < n; i++)
+	int key, j;
+	for (int i = 1; i < n; i++)
 	{
 		key = arr[i];
 		j = i - 1;
@@ -26,16 +28,15 @@ void insertionSort(int arr[], int n)
 // A utility function to print an array of size n
 void printArray(int arr[], int n)
 {
-	int i;
-	for (i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
 	cout << endl;
 }
 
-/* Driver code */
+// Driver code
 int main()
 {
-	int arr[] = { 12, 11, 13, 5, 6 };
+	int arr[] = { 12, 11, 13, 5, 6, 19, 14 };
 	int n = sizeof(arr) / sizeof(arr[0]);
 
 	insertionSort(arr, n);
@@ -43,5 +44,3 @@ int main()
 
 	return 0;
 }
-
-// This is code is contributed by rathbhupendra
