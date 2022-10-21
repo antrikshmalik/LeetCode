@@ -2,38 +2,22 @@
 #include <iostream>
 using namespace std;
 
-void mergearray(int a[], int m, int b[], int n)
+void mergearray(int arr1[], int m, int arr2[], int n)
 {
-	int i=m-1;
-	int j=n-1;
-	int k=m+n-1;
-	while(i>=0 and j>=0)
+	int newArr[m+n];
+	for (int i = 0; i < n; ++i)
 	{
-		if(a[i]>b[j])
-		{
-			a[k]=a[i];
-			i--;
-			k--;
-		}
-		else
-		{
-			a[k]=b[j];
-			j--;
-			k--;
-
-		}
+		newArr[i] = arr1[i];
 	}
-
-	while(j>=0)
+	for (int i=0,j=n; j<(m+n),i<m; j++,i++)
 	{
-		a[k]=b[j];
-		j--;
-		k--;
+		newArr[j] = arr2[i];
 	}
-
-	for(i=0; i<=m+n-1; i++)
+    
+    	cout<<endl<<"Combined array: "<<endl;
+	for (int k = 0; k < (m+n); ++k)
 	{
-		cout<<a[i]<<endl;
+		cout<<newArr[k]<<" ";
 	}
 
 }
@@ -47,5 +31,5 @@ int main()
 	mergearray(a,m,b,n);
 	return 0;
 	
-	cout<<"helkloo"
+	cout<<"helloo";
 }
