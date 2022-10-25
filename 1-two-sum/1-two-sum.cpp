@@ -2,12 +2,12 @@
   public:
       vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int,int> umap;
-        for (int i = 0; i < nums.size(); i++) {
-            int y = target - nums[i];
+        for (int index = 0; index < nums.size(); index++) {
+            int y = target - nums[index];
             if (umap.find(y) != umap.end()) {
-                return {umap[y], i};
+                return {umap[y], index};
             }
-            umap[nums[i]] = i;
+            umap[nums[index]] = index;
         }
         return {};
     }
