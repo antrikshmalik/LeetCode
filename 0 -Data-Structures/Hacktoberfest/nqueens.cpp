@@ -3,6 +3,7 @@
 #include <climits>
 #include <string>
 using namespace std;
+// Chinmay Srivastava
 bool safe(int board[][10], int i, int j, int n)
 {	
 	for (int k = 0; k < n; k++)
@@ -38,6 +39,7 @@ bool safe(int board[][10], int i, int j, int n)
 	}
 	return true;
 }
+
 bool nqueen(int board[][10], int i, int n)
 {
 	//base case
@@ -77,6 +79,7 @@ bool nqueen(int board[][10], int i, int n)
 	//agar kahin hi nahi rakh  paaye toh bhai return false
 	return false;
 }
+
 int main()
 {
 	int n;
