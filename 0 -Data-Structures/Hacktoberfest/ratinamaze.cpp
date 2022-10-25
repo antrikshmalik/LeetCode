@@ -2,6 +2,8 @@
 #include <cmath>
 #include <climits>
 #include <string>
+// Chinmay Srivastava
+
 using namespace std;
 int sol[10][10] = {0};
 bool ratinmaze(char maze[][5], int i, int j, int n, int m)
@@ -49,6 +51,7 @@ bool ratinmaze(char maze[][5], int i, int j, int n, int m)
 	sol[i][j] = 0;//backtracking hai
 	return false;
 }
+
 int main()
 {
 	char maze[][5] = {
