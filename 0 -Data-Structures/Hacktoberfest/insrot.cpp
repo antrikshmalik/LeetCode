@@ -1,14 +1,11 @@
-// C++ program for insertion sort
-#include <bits/stdc++.h>
-using namespace std;
+<script>
+// Javascript program for insertion sort
 
-// O(n^2)
-
-// Function to sort an array of size n using insertion sort
-void insertionSort(int arr[], int n)
+// Function to sort an array using insertion sort
+function insertionSort(arr, n)
 {
-	int key, j;
-	for (int i = 1; i < n; i++)
+	let i, key, j;
+	for (i = 1; i < n; i++)
 	{
 		key = arr[i];
 		j = i - 1;
@@ -26,21 +23,21 @@ void insertionSort(int arr[], int n)
 }
 
 // A utility function to print an array of size n
-void printArray(int arr[], int n)
+function printArray(arr, n)
 {
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
-	cout << endl;
+	let i;
+	for (i = 0; i < n; i++)
+		document.write(arr[i] + " ");
+	document.write("<br>");
 }
 
 // Driver code
-int main()
-{
-	int arr[] = { 12, 11, 13, 5, 6, 19, 14 };
-	int n = sizeof(arr) / sizeof(arr[0]);
+	let arr = [12, 11, 13, 5, 6 ];
+	let n = arr.length;
 
 	insertionSort(arr, n);
 	printArray(arr, n);
+	
+// This code is contributed by Raghaverma
 
-	return 0;
-}
+</script>
