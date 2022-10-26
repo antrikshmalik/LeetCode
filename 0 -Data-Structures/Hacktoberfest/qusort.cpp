@@ -1,7 +1,7 @@
 /* C++ implementation of QuickSort */
 #include <bits/stdc++.h>
 using namespace std;
-
+// Chinmay Srivastava
 // A utility function to swap two elements
 void swap(int* a, int* b)
 {
@@ -37,6 +37,7 @@ int partition (int arr[], int low, int high)
 arr[] --> Array to be sorted,
 low --> Starting index,
 high --> Ending index */
+
 void quickSort(int arr[], int low, int high)
 {
 	if (low < high)
